@@ -33,6 +33,8 @@ WIFI_DRIVER_FW_AP_PATH      := "/system/etc/firmware/fw_bcm4329_apsta.bin"
 WIFI_DRIVER_MODULE_ARG      := "firmware_path=/system/etc/firmware/fw_bcm4329.bin nvram_path=/proc/calibration"
 WIFI_DRIVER_MODULE_NAME     := "bcm4329"
 
+BOARD_LDPI_RECOVERY := true
+
 # Build kernel
 PRODUCT_SPECIFIC_DEFINES += TARGET_PREBUILT_KERNEL=device/htc/buzz/kernel
 
@@ -50,17 +52,27 @@ BOARD_VENDOR_USE_AKMD := akmd
 
 BOARD_VENDOR_QCOM_AMSS_VERSION := 1355
 
-TARGET_HARDWARE_3D := true
+TARGET_HARDWARE_3D := false
 
 BOARD_GPS_LIBRARIES := libgps librpc
 
 BOARD_USES_QCOM_LIBS := true
+
+BOARD_USES_QCOM_HARDWARE := true
  
 TARGET_RELEASETOOLS_EXTENSIONS := device/htc/common
  
 TARGET_OTA_ASSERT_DEVICE := buzz
 
 BOARD_NO_RGBX_8888 := true
+
+TARGET_LIBAGL_USE_GRALLOC_COPYBITS := true
+
+BOARD_USE_HTC_USB_FUNCTION_SWITCH := true
+
+BOARD_USE_USB_MASS_STORAGE_SWITCH := true
+
+BOARD_USE_NEW_LIBRIL_HTC := true
  
 # # cat /proc/mtd
 # dev:    size   erasesize  name
