@@ -12,8 +12,10 @@ USE_CAMERA_STUB := true
 -include vendor/htc/buzz/BoardConfigVendor.mk
  
 TARGET_BOARD_PLATFORM := msm7k
-TARGET_ARCH_VARIANT := armv5te
+TARGET_ARCH_VARIANT := armv6j
 ARCH_ARM_HAVE_NEON := false
+
+JS_ENGINE:=v8
 
 TARGET_CPU_ABI := armeabi
  
@@ -54,7 +56,7 @@ BOARD_VENDOR_QCOM_AMSS_VERSION := 1355
 
 TARGET_HARDWARE_3D := false
 
-BOARD_GPS_LIBRARIES := libgps librpc
+BOARD_GPS_LIBRARIES := libgps
 
 BOARD_GPS_NEEDS_XTRA := true
 
