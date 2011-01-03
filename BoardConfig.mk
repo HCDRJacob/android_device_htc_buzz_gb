@@ -37,9 +37,6 @@ WIFI_DRIVER_MODULE_NAME     := "bcm4329"
 
 BOARD_LDPI_RECOVERY := true
 
-# Build kernel
-PRODUCT_SPECIFIC_DEFINES += TARGET_PREBUILT_KERNEL=device/htc/buzz/kernel
-
 TARGET_PROVIDES_INIT_TARGET_RC := true
 
 BOARD_KERNEL_CMDLINE := no_console_suspend=1 console=null
@@ -107,3 +104,6 @@ BUILD_WITH_FULL_STAGEFRIGHT := true
  
 # Stop compiling test_* binaries for eng tag
 #STOP_TEST_BINS := true
+
+TARGET_PREBUILT_KERNEL := device/htc/buzz/prebuilt/kernel
+LOCAL_KERNEL := device/htc/buzz/prebuilt/kernel

@@ -14,14 +14,7 @@
 # limitations under the License.
 #
 
-ifeq ($(TARGET_PREBUILT_KERNEL),)
-LOCAL_KERNEL := device/htc/buzz/kernel
-else
-LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
-endif
 
-PRODUCT_COPY_FILES += \
-    $(LOCAL_KERNEL):kernel
 
 # Live wallpaper packages
 PRODUCT_PACKAGES := \
@@ -47,8 +40,20 @@ PRODUCT_COPY_FILES += \
     frameworks/base/data/etc/android.hardware.wifi.xml:system/etc/permissions/android.hardware.wifi.xml \
     frameworks/base/data/etc/android.hardware.touchscreen.multitouch.xml:system/etc/permissions/android.hardware.touchscreen.multitouch.xml 
 
+# Kernel modules
+#PRODUCT_COPY_FILES += \
+
+ifeq ($(TARGET_PREBUILT_KERNEL),)
+LOCAL_KERNEL := device/htc/buzz/prebuilt/kernel
+else
+LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
+endif
+
 PRODUCT_COPY_FILES += \
-    device/htc/buzz/bcm4329.ko:system/lib/modules/bcm4329.ko
+    $(LOCAL_KERNEL):kernel
+
+PRODUCT_COPY_FILES += \
+    device/htc/buzz/prebuilt/bcm4329.ko:system/lib/modules/bcm4329.ko
 
 PRODUCT_PROPERTY_OVERRIDES := \
     ro.media.dec.jpeg.memcap=10000000
